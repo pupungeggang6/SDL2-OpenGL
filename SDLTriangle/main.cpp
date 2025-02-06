@@ -3,12 +3,12 @@
 #include <iostream>
 
 const char *vSource = R"(#version 330 core
-    in vec3 a_position;
+    in vec4 a_position;
     in vec3 a_color;
     out vec3 p_color;
 
     void main() {
-        gl_Position = vec4(a_position, 1.0);
+        gl_Position = a_position;
         p_color = a_color;
     }
 )";
@@ -23,14 +23,14 @@ const char *fSource = R"(#version 330 core
     }
 )";
 
-GLuint vShader, fShader, program, vao, vbo;
+unsigned int vShader, fShader, program, vao, vbo;
 unsigned int frameCurrent, frameNext;
-GLint laPosition, laColor;
+int laPosition, laColor;
 int delta;
 SDL_Window *window;
 SDL_GLContext context;
 float b[18] = {
-    0.0, -0.8, 0.0, 1.0, 0.0, 0.0,
+    0.0, 0.8, 0.0, 1.0, 0.0, 0.0,
     -0.8, -0.8, 0.0, 0.0, 1.0, 0.0,
     0.8, -0.8, 0.0, 0.0, 0.0, 1.0
 };
@@ -107,7 +107,7 @@ void mainLoop() {
         SDL_GL_SwapWindow(window);
         
         frameCurrent = SDL_GetTicks();
-        std::cout << frameNext - frameCurrent << std::endl;
+        //std::cout << frameNext - frameCurrent << std::endl;
         if (frameCurrent < frameNext) {
             SDL_Delay(frameNext - frameCurrent);
         }
