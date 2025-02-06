@@ -71,3 +71,10 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
+
+*.swp
+.DS_Store
+*.png~
+Release/
+glad/
+glad.zip
