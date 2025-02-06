@@ -77,4 +77,6 @@ luac.out
 *.png~
 Release/
 glad/
+glades/
 glad.zip
+glades.zip
