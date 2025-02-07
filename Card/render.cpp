@@ -13,7 +13,13 @@ void createWindow() {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     window = SDL_CreateWindow("Card Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_OPENGL);
     context = SDL_GL_CreateContext(window);
+    #if GL == 1
     gladLoadGLLoader(SDL_GL_GetProcAddress);
+    #elif GLES == 1
+    gladLoadGLES2Loader(SDL_GL_GetProcAddress);
+    #else
+    exit(0);
+    #endif
     std::cout << glGetString(GL_VERSION) << std::endl;
 
     bool running = true;

@@ -1,4 +1,4 @@
 linux: dummy
-	clang++ *.cpp ../glad/src/glad.c -o main -I../glad/include -lSDL2 -std=c++11 -w 
+	clang++ *.cpp ../glad/src/glad.c -o main -I../glad/include -lSDL2 -std=c++11 -w -DGL=1
 
 dummy:
