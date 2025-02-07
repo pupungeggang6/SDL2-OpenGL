@@ -76,6 +76,7 @@ luac.out
 .DS_Store
 *.png~
 Release/
+main
 glad/
 glades/
 glad.zip
